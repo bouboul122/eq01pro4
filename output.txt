@@ -1,0 +1,4 @@
+class model.PowerSource [xCoordinate=72.00000000000001, yCoordinate=73.60000000000001, mainColor=#98FB98, borderColor=#008000]
+class model.PowerSource [xCoordinate=209.59999999999997, yCoordinate=100.39999999999999, mainColor=#98FB98, borderColor=#008000]
+class model.AccumulationPower [xCoordinate=84.39999999999999, yCoordinate=203.2, mainColor=#FFD700, borderColor=#FF0000]
+class model.AccumulationPower [xCoordinate=231.59999999999997, yCoordinate=138.0, mainColor=#FFD700, borderColor=#FF0000]
