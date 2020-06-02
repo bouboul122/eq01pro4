@@ -15,6 +15,7 @@ import javafx.scene.control.TitledPane;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -44,6 +45,7 @@ public class EMRSaveController {
 	ClipboardContent content = new ClipboardContent();
 	
 	ArrayList<ShapeEMR> shapeEMRList = new ArrayList<ShapeEMR>();
+	ArrayList<Shape> shapeList = new ArrayList<Shape>();
 	Stack<Command> doneCommands= new Stack<Command>();
 	Stack<Command> deletedCommands= new Stack<Command>();
 	
@@ -117,6 +119,7 @@ public class EMRSaveController {
 		drawingBoard.setOnDragDropped(new EventHandler<DragEvent>() {
 		    public void handle(DragEvent event) {
 		    	ShapeEMR shape;
+		    	Shape shapeDrew;
 		        db = event.getDragboard();
 		        boolean success = false;
 		        if (db.hasString()) {
@@ -127,7 +130,9 @@ public class EMRSaveController {
 		        		shapeCommand.setxBegin(event.getX());
 		        		shapeCommand.setyBegin(event.getY());
 		        		shape = shapeCommand.drawShape();
+		        		shapeDrew = shapeCommand.getShapeDrew();
 		        		doneCommands.add(shapeCommand);
+		        		shapeCommand.addToList(shapeList);
 		        	} else if(content.getString().contentEquals("AccumulationPower"))
 		        	{
 		        		System.out.println("AccumulationPower");
@@ -135,11 +140,15 @@ public class EMRSaveController {
 		        		shapeCommand.setxBegin(event.getX());
 		        		shapeCommand.setyBegin(event.getY());
 		        		shape = shapeCommand.drawShape();
+		        		shapeDrew = shapeCommand.getShapeDrew();
 		        		doneCommands.add(shapeCommand);
+		        		shapeCommand.addToList(shapeList);
 		        	}else {
 		        		shape = null;
+		        		shapeDrew = null;
 		        	}
-		           
+							
+		        			           
 		           success = true;
 		        }
 		        event.setDropCompleted(success);
@@ -158,6 +167,8 @@ public class EMRSaveController {
 			Command commandToUndo = doneCommands.pop();
 			commandToUndo.deleteShape();
 			deletedCommands.add(commandToUndo);
+			commandToUndo.removeFromList(shapeList);
+			System.out.println(shapeList.size());
 			
 			}
 			else {
@@ -172,9 +183,11 @@ public class EMRSaveController {
 
 		if(powerShapes.isExpanded()) {
 			if(deletedCommands.size() > 0) {
-			Command commandToUndo = deletedCommands.pop();
-			commandToUndo.drawShape();
-			doneCommands.add(commandToUndo);
+			Command commandToRedo = deletedCommands.pop();
+			commandToRedo.drawShape();
+			doneCommands.add(commandToRedo);
+			commandToRedo.addToList(shapeList);
+			System.out.println(shapeList.size());
 			
 			}
 			else {
