@@ -24,6 +24,7 @@ import model.ArrowCommand;
 import model.Command;
 import model.PowerSource;
 import model.ReadBehavior;
+import model.ReadFXML;
 import model.ReadText;
 import model.ShapeCommand;
 import model.ShapeEMR;
@@ -83,6 +84,8 @@ public class EMRSaveController {
 	MenuItem openTextMenu;
 	@FXML
 	MenuItem saveFXMLMenu;
+	@FXML
+	MenuItem openFXMLMenu;
 	
 	
 	public void initialize()
@@ -120,21 +123,19 @@ public class EMRSaveController {
 		        	if (content.getString().contentEquals("PowerSource"))
 		        	{
 		        		System.out.println("PowerSource");
-		        		shapeCommand = new ShapeCommand("PowerSource",drawingBoard, content, db);
+		        		shapeCommand = new ShapeCommand("PowerSource",drawingBoard, content, db, shapeEMRList);
 		        		shapeCommand.setxBegin(event.getX());
 		        		shapeCommand.setyBegin(event.getY());
 		        		shape = shapeCommand.drawShape();
 		        		doneCommands.add(shapeCommand);
-		        		shapeEMRList.add(shape);
 		        	} else if(content.getString().contentEquals("AccumulationPower"))
 		        	{
 		        		System.out.println("AccumulationPower");
-		        		shapeCommand = new ShapeCommand("AccumulationPower",drawingBoard, content, db);
+		        		shapeCommand = new ShapeCommand("AccumulationPower",drawingBoard, content, db, shapeEMRList);
 		        		shapeCommand.setxBegin(event.getX());
 		        		shapeCommand.setyBegin(event.getY());
 		        		shape = shapeCommand.drawShape();
 		        		doneCommands.add(shapeCommand);
-		        		shapeEMRList.add(shape);
 		        	}else {
 		        		shape = null;
 		        	}
@@ -198,7 +199,7 @@ public class EMRSaveController {
 	{
 		writeBehavior = new WriteFXML();
 		try {
-			writeBehavior.write("C:\\Users\\ludov\\Documents\\textSaveApp2FXML.fxml", shapeEMRList);
+			writeBehavior.write("C:\\Users\\ludov\\Documents\\textSaveApp2FXML.xml", shapeEMRList);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -219,6 +220,21 @@ public class EMRSaveController {
 			e.printStackTrace();
 		}
 	}
+	
+	public void openFXMLMenuClicked()
+	{
+		readBehavior = new ReadFXML(content, db, drawingBoard, shapeEMRList);
+		doneCommands.clear();
+		deletedCommands.clear();
+		shapeEMRList.clear();
+		drawingBoard.getChildren().clear();
+		try {
+			readBehavior.read("C:\\Users\\ludov\\Documents\\textSaveApp2FXML.xml", shapeEMRList);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 
 
 }

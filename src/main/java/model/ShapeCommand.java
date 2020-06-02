@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Stack;
 
 import javafx.scene.input.ClipboardContent;
@@ -12,36 +13,41 @@ public class ShapeCommand implements Command{
 	Pane drawingBoard;
 	String shapeToDraw;
 	ShapeFactory shapeFactory;
+	ArrayList<ShapeEMR> shapesEMR;
 	double xBegin;
 	double xEnd;
 	double yBegin;
 	double yEnd;
+	Shape shapeDrew;
+	ShapeEMR shapeEMRCreated;
 	
-	public ShapeCommand(String shapeToDraw, Pane drawingBoard, ClipboardContent content, Dragboard db){
+	public ShapeCommand(String shapeToDraw, Pane drawingBoard, ClipboardContent content, Dragboard db, ArrayList<ShapeEMR> shapesEMR){
 		this.shapeToDraw = shapeToDraw;
 		this.shapeFactory = new ShapeFactory(content, db);
 		this.drawingBoard = drawingBoard;
+		this.shapesEMR = shapesEMR;
 	}
 	
 	@Override
 	public ShapeEMR drawShape() {
-		ShapeEMR shape;
 		
 		if (shapeToDraw.equals("PowerSource")) {
-			shape = shapeFactory.getShape(ShapeFactory.eshape.sourcePower, this.xBegin, this.yBegin, "#98FB98", "#008000");
+			shapeEMRCreated = shapeFactory.getShape(ShapeFactory.eshape.sourcePower, this.xBegin, this.yBegin, "#98FB98", "#008000");
 		}else {
-			shape =  shapeFactory.getShape(ShapeFactory.eshape.accumulationPower, this.xBegin, this.yBegin, "#FFD700", "#FF0000");
+			shapeEMRCreated =  shapeFactory.getShape(ShapeFactory.eshape.accumulationPower, this.xBegin, this.yBegin, "#FFD700", "#FF0000");
 		}
-		Shape shapeToDraw = shape.createShape();
+		Shape shapeToDraw = shapeEMRCreated.createShape();
 		drawingBoard.getChildren().add(shapeToDraw);
-		//drawingElements.add(shapeToDraw);
-		return shape;
+		shapesEMR.add(shapeEMRCreated);
+		return shapeEMRCreated;
 	}
 	
 	@Override
 	public void deleteShape() {
 
 		drawingBoard.getChildren().remove(drawingBoard.getChildren().size() -1);
+		shapesEMR.remove(shapeEMRCreated);
+		
 	}
 
 	public Pane getDrawingBoard() {

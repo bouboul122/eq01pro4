@@ -16,8 +16,9 @@ public class WriteFXML implements WriteBehavior{
 		    	
 		    	String line = objectList.get(i).toString();
 		    	String[] tokens = line.split(",");
-		    	String strToWrite = "<Shape class=" +"\"" + tokens[0] + "\"" + " xCoordinate=" + tokens[1] + " yCoordinate=" + tokens[2] +
-		    			" mainColor=" + "\"" + tokens[3] + "\"" + " borderColor" + "\"" + tokens[4] + "\"" + "\\>"; 
+		    	String strToWrite = "<Shape class=" +"\"" + tokens[0] + "\"" + " xCoordinate=" + "\""+tokens[1] +"\"" + 
+		    			" yCoordinate=" + "\""+tokens[2] + "\""+" mainColor=" + "\"" + tokens[3] + "\"" + " borderColor=" +
+		    			"\"" + tokens[4] + "\"" + " \\>"; 
 				bw.write(strToWrite);
 				bw.newLine();
 				System.out.println(strToWrite);
