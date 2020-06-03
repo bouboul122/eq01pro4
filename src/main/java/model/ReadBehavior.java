@@ -7,6 +7,7 @@ import javafx.scene.shape.Shape;
 
 public interface ReadBehavior {
 	
-	public void read(String path, ArrayList<ShapeEMR> objectToWrite) throws IOException;
-
+	public void read(ArrayList<ShapeEMR> objectToWrite) throws IOException;
+	
+	public String openFileChooser(); 
 }

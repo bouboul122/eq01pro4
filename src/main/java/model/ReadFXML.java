@@ -1,6 +1,7 @@
 package model;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
@@ -12,6 +13,8 @@ import java.util.regex.Pattern;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.layout.Pane;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 
 public class ReadFXML implements ReadBehavior{
 	
@@ -28,12 +31,23 @@ public class ReadFXML implements ReadBehavior{
 		this.drawingBoard = drawingBoard;
 		this.shapeList = shapeList;
 	}
-
+	
+	//Fonction pour ouvrir le FileChooser en .xml
+	public String openFileChooser() {
+			
+		FileChooser fc = new FileChooser();
+		fc.getExtensionFilters().addAll(
+		    new ExtensionFilter("xml Files", "*.xml"));
+		File selectedFile = fc.showOpenDialog(null);
+		return selectedFile.getAbsolutePath();
+	}
+		
 	@Override
-	public void read(String path, ArrayList<ShapeEMR> objectToWrite) throws IOException {
+	public void read(ArrayList<ShapeEMR> objectToWrite) throws IOException {
 		try {
 		    // create a reader
-		    BufferedReader br = new BufferedReader(new FileReader(path));
+			
+		    BufferedReader br = new BufferedReader(new FileReader(openFileChooser()));
 
 		    // read until end of file
 		    String line;

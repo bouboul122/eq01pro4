@@ -1,6 +1,7 @@
 package model;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
@@ -15,6 +16,8 @@ import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Shape;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 
 public class ReadText implements ReadBehavior{
 	
@@ -32,13 +35,23 @@ public class ReadText implements ReadBehavior{
 		this.shapeList = shapeList;
 	}
 	
-	public void read(String path, ArrayList<ShapeEMR> shapeList) throws IOException
+	//Fonction pour ouvrir le FileChooser en .txt
+	public String openFileChooser() {
+		
+			FileChooser fc = new FileChooser();
+			fc.getExtensionFilters().addAll(
+	    		new ExtensionFilter("txt Files", "*.txt"));
+			File selectedFile = fc.showOpenDialog(null);
+			return selectedFile.getAbsolutePath();
+	}
+	
+	public void read(/*String path, */ArrayList<ShapeEMR> shapeList) throws IOException
 	{
 		ShapeEMR newShape = null;
 		try {
-		    // create a reader
-		    BufferedReader br = new BufferedReader(new FileReader(path));
-
+		    
+		    BufferedReader br = new BufferedReader(new FileReader(openFileChooser()));
+		    
 		    // read until end of file
 		    String line;
 		    
@@ -70,75 +83,4 @@ public class ReadText implements ReadBehavior{
 		
 	}
 	
-/*
-	public void read(String path, ArrayList<ShapeEMR> shapeList) throws IOException
-	{
-		ShapeEMR newShape = null;
-		try {
-		    BufferedReader br = new BufferedReader(new FileReader(path));
-
-		    String line;
-		    while ((line = br.readLine()) != null) {
-		        System.out.println(line);
-		        String name = line.substring(line.indexOf("class "), line.indexOf("["));
-		        pattern = Pattern.compile("xCoordinate=(.*?),");
-		        matcher = pattern.matcher(line);
-		        double xCoord = Double.valueOf(matcher.group(1));
-		        System.out.println(matcher.group(1));
-		        
-		        pattern = Pattern.compile("yCoordinate=(.*?),");
-		        matcher = pattern.matcher(line);
-		        double yCoord = Double.valueOf(matcher.group(1));
-		        System.out.println(matcher.group(1));
-		        
-		        pattern = Pattern.compile("mainColor=(.*?),");
-		        matcher = pattern.matcher(line);
-		        String mainColor =matcher.group(1);
-		        System.out.println(matcher.group(1));
-		        
-		        
-		        pattern = Pattern.compile("mainColor=(.*?),");
-		        matcher = pattern.matcher(line);
-		        String borderColor =matcher.group(1);
-		        System.out.println(matcher.group(1));
-		        
-		        
-		        
-		        try {
-					Class<?> clazz = Class.forName(name);
-					Constructor<?> constructor = null;
-					try {
-						constructor = clazz.getConstructor(double.class, double.class, String.class, String.class, ClipboardContent.class, Dragboard.class);
-					} catch (NoSuchMethodException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (SecurityException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					
-					try {
-						System.out.println("Added shape!");
-						newShape = (ShapeEMR) constructor.newInstance(xCoord, yCoord, mainColor, borderColor, content, db);
-						drawingBoard.getChildren().add(newShape.createShape());
-					} catch (InstantiationException | IllegalAccessException | IllegalArgumentException
-							| InvocationTargetException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					
-				} catch (ClassNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-		    }
-
-		    // close the reader
-		    br.close();
-
-		} catch (IOException ex) {
-		    ex.printStackTrace();
-		}
-	}
-*/
 }

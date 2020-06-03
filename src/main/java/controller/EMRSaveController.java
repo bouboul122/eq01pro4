@@ -201,7 +201,8 @@ public class EMRSaveController {
 	{
 		writeBehavior = new WriteText();
 		try {
-			writeBehavior.write("C:\\Users\\ludov\\Documents\\textSaveApp2.txt", shapeEMRList);
+			//writeBehavior.write("C:\\Users\\ludov\\Documents\\textSaveApp2.txt", shapeEMRList);
+			writeBehavior.write("C:\\Users\\jordl\\Documents\\textSaveApp2.txt", shapeEMRList);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -212,7 +213,8 @@ public class EMRSaveController {
 	{
 		writeBehavior = new WriteFXML();
 		try {
-			writeBehavior.write("C:\\Users\\ludov\\Documents\\textSaveApp2FXML.xml", shapeEMRList);
+			//writeBehavior.write("C:\\Users\\ludov\\Documents\\textSaveApp2FXML.xml", shapeEMRList);
+			writeBehavior.write("C:\\Users\\jordl\\Documents\\textSaveApp2FXML.xml", shapeEMRList);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -228,7 +230,8 @@ public class EMRSaveController {
 		shapeEMRList.clear();
 		drawingBoard.getChildren().clear();
 		try {
-			readBehavior.read("C:\\Users\\ludov\\Documents\\textSaveApp2.txt", shapeEMRList);
+			//readBehavior.read("C:\\Users\\ludov\\Documents\\textSaveApp2.txt", shapeEMRList);
+			readBehavior.read(/*"C:\\Users\\jordl\\Documents\\textSaveApp2.txt",*/ shapeEMRList);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -242,7 +245,8 @@ public class EMRSaveController {
 		shapeEMRList.clear();
 		drawingBoard.getChildren().clear();
 		try {
-			readBehavior.read("C:\\Users\\ludov\\Documents\\textSaveApp2FXML.xml", shapeEMRList);
+			//readBehavior.read("C:\\Users\\ludov\\Documents\\textSaveApp2FXML.xml", shapeEMRList);
+			readBehavior.read(/*"C:\\Users\\jordl\\\\Documents\\textSaveApp2FXML.xml",*/ shapeEMRList);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
