@@ -70,11 +70,4 @@ public class AccumulationPower extends ShapeEMR{
 		return "AccumulationPower" + "," + xCoordinate + ","+ yCoordinate + "," + mainColor + "," + borderColor;
 	}
 	
-	/*
-	@Override
-	public String toString() {
-		return this.getClass() + " [xCoordinate=" + xCoordinate + ", yCoordinate=" + yCoordinate + ", mainColor="
-				+ mainColor + ", borderColor=" + borderColor + "]";
-	}
-	*/
 }

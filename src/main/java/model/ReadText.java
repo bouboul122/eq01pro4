@@ -2,12 +2,10 @@ package model;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
+
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
+
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -15,7 +13,7 @@ import java.util.regex.Pattern;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.Shape;
+
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 

@@ -4,7 +4,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
+
 import java.util.ArrayList;
 
 import javafx.stage.FileChooser;
@@ -29,7 +29,7 @@ public class WriteFXML implements WriteBehavior{
 		
 	}
 	
-	public void write(String path, ArrayList<ShapeEMR> objectList) throws IOException
+	public void write(ArrayList<ShapeEMR> objectList) throws IOException
 	{
 		try {
 
