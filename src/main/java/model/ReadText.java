@@ -1,12 +1,11 @@
 package model;
 
 import java.io.BufferedReader;
-import java.io.FileInputStream;
+import java.io.File;
+
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
+
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -14,7 +13,9 @@ import java.util.regex.Pattern;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.Shape;
+
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 
 /*
  * Cette classe fait partie du modele Strategy avec WriteBehavior, ReadBehavior, ReadFXML, WriteText, WriteFXML
@@ -38,14 +39,24 @@ public class ReadText implements ReadBehavior{
 		this.shapeList = shapeList;
 	}
 	
-	public void read(String path, ArrayList<ShapeEMR> shapeList) throws IOException
+	//Fonction pour ouvrir le FileChooser en .txt
+	public String openFileChooser() {
+		
+			FileChooser fc = new FileChooser();
+			fc.getExtensionFilters().addAll(
+	    		new ExtensionFilter("txt Files", "*.txt"));
+			File selectedFile = fc.showOpenDialog(null);
+			return selectedFile.getAbsolutePath();
+	}
+	
+	public void read(ArrayList<ShapeEMR> shapeList) throws IOException
 	{
 		ShapeEMR newShape = null;
 		try {
-		
-		    BufferedReader br = new BufferedReader(new FileReader(path));
-
-
+		    
+		    BufferedReader br = new BufferedReader(new FileReader(openFileChooser()));
+		    
+		    // read until end of file
 		    String line;
 		    
 		    while ((line = br.readLine()) != null) {

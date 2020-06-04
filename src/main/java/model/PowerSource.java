@@ -62,12 +62,6 @@ public class PowerSource extends ShapeEMR{
 	public String toString() {
 		return "PowerSource" + ","+ xCoordinate + "," + yCoordinate + "," + mainColor + "," + borderColor;
 	}
-	/*
-	@Override
-	public String toString() {
-		return this.getClass() + "[xCoordinate=" + xCoordinate + ", yCoordinate=" + yCoordinate + ", mainColor=" + mainColor
-				+ ", borderColor=" + borderColor + "]";
-	}
-	*/
+
 
 }

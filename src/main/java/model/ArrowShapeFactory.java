@@ -2,7 +2,7 @@ package model;
 
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.Dragboard;
-import javafx.scene.shape.Shape;
+
 
 /*
  * Cette classe fait partie du modele Factory avec toutes les autres formes concretes, Arrow, ShapeEMR, ShapeFactory

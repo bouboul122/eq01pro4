@@ -23,8 +23,6 @@ public class BlackArrowDouble extends Arrow{
 	@Override
 	public Shape createShape() {
 		double angle = Math.atan2 (yEnd - yCoordinate, xEnd - xCoordinate) + Math.PI;
-	   
-		   double offset = 10;
 		
 	       double x1 = xEnd + 6 * Math.cos(angle - Math.PI/6);
 	       double y1 = yEnd + 6 * Math.sin(angle - Math.PI/6);
@@ -35,12 +33,7 @@ public class BlackArrowDouble extends Arrow{
 	       double y3 = yCoordinate - 6 * Math.sin(angle - Math.PI/6);
 	       double x4 = xCoordinate - 6 * Math.cos(angle + Math.PI/6);
 	       double y4 = yCoordinate - 6 * Math.sin(angle + Math.PI/6);
-	       
-	       double offsetX1 = offset * Math.cos(angle);
-	       double offsetY1 = offset * Math.sin(angle);
-	       double offsetX2 = offset * Math.cos(angle);
-	       double offsetY2 = offset * Math.sin(angle);
-	       
+
 	       Line mainLine = new Line();
 	       Line secLine = new Line();
 	       Line littleLine1 = new Line();
@@ -82,7 +75,7 @@ public class BlackArrowDouble extends Arrow{
 	       Shape arrowHead = Shape.union(firstUnion, littleLine2);
 	       Shape arrowHeadA = Shape.union(arrowHead, littleLine3);
 	       Shape finalArrow = Shape.union(arrowHeadA, littleLine4);
-	       
+
 	       finalArrow.setFill(Color.web(this.mainColor));
 	       finalArrow.setStroke(Color.web(this.borderColor));
 	       

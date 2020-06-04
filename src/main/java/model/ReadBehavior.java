@@ -3,7 +3,7 @@ package model;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import javafx.scene.shape.Shape;
+
 
 /*
  * Cette classe fait partie du modele Strategy avec WriteBehavior, ReadFXML, WriteFXML, ReadText, WriteText
@@ -12,6 +12,7 @@ import javafx.scene.shape.Shape;
  */
 public interface ReadBehavior {
 	
-	public void read(String path, ArrayList<ShapeEMR> objectToWrite) throws IOException;
-
+	public void read(ArrayList<ShapeEMR> objectToWrite) throws IOException;
+	
+	public String openFileChooser(); 
 }

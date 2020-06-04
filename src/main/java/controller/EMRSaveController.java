@@ -14,7 +14,7 @@ import javafx.scene.control.TitledPane;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
-import javafx.scene.input.MouseEvent;
+
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -202,7 +202,8 @@ public class EMRSaveController {
 	{
 		writeBehavior = new WriteText();
 		try {
-			writeBehavior.write("C:\\Users\\ludov\\Documents\\textSaveApp2.txt", shapeEMRList);
+			
+			writeBehavior.write(shapeEMRList);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -213,7 +214,8 @@ public class EMRSaveController {
 	{
 		writeBehavior = new WriteFXML();
 		try {
-			writeBehavior.write("C:\\Users\\ludov\\Documents\\textSaveApp2FXML.xml", shapeEMRList);
+			
+			writeBehavior.write(shapeEMRList);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -229,7 +231,7 @@ public class EMRSaveController {
 		shapeEMRList.clear();
 		drawingBoard.getChildren().clear();
 		try {
-			readBehavior.read("C:\\Users\\ludov\\Documents\\textSaveApp2.txt", shapeEMRList);
+			readBehavior.read(shapeEMRList);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -243,7 +245,8 @@ public class EMRSaveController {
 		shapeEMRList.clear();
 		drawingBoard.getChildren().clear();
 		try {
-			readBehavior.read("C:\\Users\\ludov\\Documents\\textSaveApp2FXML.xml", shapeEMRList);
+			
+			readBehavior.read(shapeEMRList);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
