@@ -22,9 +22,9 @@
                   <items>
                     <MenuItem mnemonicParsing="false" text="Close" />
                         <MenuItem fx:id="saveTextMenu" mnemonicParsing="false" onAction="#saveToTextClicked" text="Save Text" />
-                        <MenuItem fx:id="saveFXMLMenu" mnemonicParsing="false" onAction="#saveToFXMLClicked" text="Save FXML" />
+                        <MenuItem fx:id="saveFXMLMenu" mnemonicParsing="false" onAction="#saveToFXMLClicked" text="Save XML" />
                         <MenuItem fx:id="openTextMenu" mnemonicParsing="false" onAction="#openTextMenuClicked" text="Open Text" />
-                        <MenuItem fx:id="openFXMLMenu" mnemonicParsing="false" onAction="#openFXMLMenuClicked" text="Open FXML" />
+                        <MenuItem fx:id="openFXMLMenu" mnemonicParsing="false" onAction="#openFXMLMenuClicked" text="Open XML" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Edit">
