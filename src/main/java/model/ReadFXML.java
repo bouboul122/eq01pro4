@@ -13,6 +13,12 @@ import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.layout.Pane;
 
+/*
+ * Cette classe fait partie du modele Strategy avec WriteBehavior, ReadBehavior, ReadText, WriteText, WriteFXML
+ * 
+ * Cette classe fait partie du modele de conception MVC
+ */
+
 public class ReadFXML implements ReadBehavior{
 	
 	ClipboardContent content;
@@ -32,10 +38,10 @@ public class ReadFXML implements ReadBehavior{
 	@Override
 	public void read(String path, ArrayList<ShapeEMR> objectToWrite) throws IOException {
 		try {
-		    // create a reader
+		
 		    BufferedReader br = new BufferedReader(new FileReader(path));
 
-		    // read until end of file
+		  
 		    String line;
 		    while ((line = br.readLine()) != null) {
 		        System.out.println(line);
@@ -84,7 +90,7 @@ public class ReadFXML implements ReadBehavior{
 		        
 		    }
 
-		    // close the reader
+
 		    br.close();
 
 		} catch (IOException ex) {

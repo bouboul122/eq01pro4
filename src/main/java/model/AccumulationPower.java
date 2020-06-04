@@ -10,6 +10,13 @@ import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 
+/*
+ * Cette classe fait partie du modele Factory avec toutes les autres formes concretes, Arrow, ShapeEMR, ShapeFactory
+ * ArrowShapeFactory
+ * 
+ * Cette classe fait partie du modele de conception MVC
+ */
+
 public class AccumulationPower extends ShapeEMR{
 	
 
@@ -34,7 +41,6 @@ public class AccumulationPower extends ShapeEMR{
 		diagonal.setEndX(this.xCoordinate + element.getWidth());
 		diagonal.setEndY(this.yCoordinate + element.getHeight());
 		diagonal.setFill(Color.web(this.borderColor));
-		
 		Shape shape = Shape.subtract(element, diagonal);
 		shape.setFill(Color.web(this.mainColor));
 		shape.setStroke(Color.web(this.borderColor));
@@ -48,11 +54,10 @@ public class AccumulationPower extends ShapeEMR{
 
 			@Override
 			public void handle(MouseEvent event) {
-				 /* drag was detected, start a drag-and-drop gesture*/
-		        /* allow any transfer mode */
+
 		        db = shape.startDragAndDrop(TransferMode.ANY);
 		        
-		        /* Put a string on a dragboard */
+
 		        content.putString("AccumulationPower");
 		        db.setContent(content);
 		        
@@ -70,11 +75,4 @@ public class AccumulationPower extends ShapeEMR{
 		return "AccumulationPower" + "," + xCoordinate + ","+ yCoordinate + "," + mainColor + "," + borderColor;
 	}
 	
-	/*
-	@Override
-	public String toString() {
-		return this.getClass() + " [xCoordinate=" + xCoordinate + ", yCoordinate=" + yCoordinate + ", mainColor="
-				+ mainColor + ", borderColor=" + borderColor + "]";
-	}
-	*/
 }

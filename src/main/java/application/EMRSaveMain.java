@@ -6,6 +6,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/*
+ * Cette classe contient la vue du modele MVC
+ */
 public class EMRSaveMain extends Application {
 	
     @Override

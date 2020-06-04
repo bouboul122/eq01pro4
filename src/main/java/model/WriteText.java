@@ -9,7 +9,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import javafx.scene.shape.Shape;
-/* essaie une nouvelle facon decrire apres souper*/
+
+/*
+ * Cette classe fait partie du modele Strategy avec ReadBehavior, ReadText, ReadFXML, WriteBehavior, WrtieFXML
+ * 
+ * Cette classe fait partie du modele de conception MVC
+ */
+
 public class WriteText implements WriteBehavior{
 	
 	@Override

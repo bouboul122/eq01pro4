@@ -5,6 +5,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/*
+ * Cette classe fait partie du modele Strategy avec ReadBehavior, ReadText, ReadFXML, WriteText, WriteBehavior
+ * 
+ * Cette classe fait partie du modele de conception MVC
+ */
+
 public class WriteFXML implements WriteBehavior{
 	
 	public void write(String path, ArrayList<ShapeEMR> objectList) throws IOException

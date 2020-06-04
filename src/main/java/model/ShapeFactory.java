@@ -4,6 +4,8 @@ import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.shape.Shape;
 
+
+
 public class ShapeFactory {
 	
 	ClipboardContent content;
@@ -24,7 +26,6 @@ public class ShapeFactory {
 	{
 		
 		ShapeEMR shape;
-		//Shape shape;
 		switch(element) {
 		case sourcePower:
 			shape = (new PowerSource(xCoord, yCoord, mainColor, borderColor, content, db));//.createShape();	
@@ -35,7 +36,6 @@ public class ShapeFactory {
 		default:
 			shape = null;
 		}
-		
 		
 		return shape;
 	}

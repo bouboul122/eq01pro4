@@ -10,7 +10,6 @@ import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Polyline;
 import javafx.scene.shape.Shape;
 
- 
 
 public class RedArrow extends Arrow{
 

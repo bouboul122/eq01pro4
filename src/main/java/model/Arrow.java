@@ -1,6 +1,13 @@
 package model;
 
 import javafx.scene.input.ClipboardContent;
+
+/*
+ * Cette classe fait partie du modele Factory avec toutes les autres formes concretes, ShapeEMR, ShapeFactory
+ * ArrowShapeFactory
+ * 
+ * Cette classe fait partie du modele de conception MVC
+ */
 import javafx.scene.input.Dragboard;
 
 public abstract class Arrow extends ShapeEMR{

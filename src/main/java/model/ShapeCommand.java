@@ -8,6 +8,13 @@ import javafx.scene.input.Dragboard;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Shape;
 
+
+/*
+ * Cette classe fait partie du modele Command avec Command, ArrowCommand
+ * 
+ * Cette classe fait partie du modele de conception MVC
+ */
+
 public class ShapeCommand implements Command{
 	
 	Pane drawingBoard;

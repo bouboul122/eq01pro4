@@ -9,6 +9,13 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Shape;
 
+/*
+ * Cette classe fait partie du modele Factory avec toutes les autres formes concretes, Arrow, ShapeEMR, ShapeFactory
+ * ArrowShapeFactory
+ * 
+ * Cette classe fait partie du modele de conception MVC
+ */
+
 public class PowerSource extends ShapeEMR{
 	
 
@@ -36,11 +43,10 @@ public class PowerSource extends ShapeEMR{
 
 			@Override
 			public void handle(MouseEvent event) {
-				 /* drag was detected, start a drag-and-drop gesture*/
-		        /* allow any transfer mode */
+	
 		        db = ellipse.startDragAndDrop(TransferMode.ANY);
 		        
-		        /* Put a string on a dragboard */;
+
 		        content.putString("PowerSource");
 		        db.setContent(content);
 		        

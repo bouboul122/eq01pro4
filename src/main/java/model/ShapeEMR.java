@@ -5,6 +5,14 @@ import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.shape.Shape;
 
+
+/*
+ * Cette classe fait partie du modele Factory avec Arrow, ShapeFactory, ArrowShapeFactory et toutes les formes 
+ * concretes
+ * 
+ * Cette classe fait partie du modele de conception MVC
+ */
+
 public abstract class ShapeEMR{
 	
 	double xCoordinate;

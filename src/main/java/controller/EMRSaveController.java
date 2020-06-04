@@ -3,7 +3,6 @@ package controller;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Stack;
-
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
@@ -33,6 +32,9 @@ import model.WriteBehavior;
 import model.WriteFXML;
 import model.WriteText;
 
+/*
+ * Cette classe contient le controlleur du modele MVC
+ */
 public class EMRSaveController {
 	
 	WriteBehavior writeBehavior;
@@ -95,7 +97,6 @@ public class EMRSaveController {
 		
 		System.out.println("Initialising");
 		shapeMenu.setExpandedPane(powerShapes);
-		//state = new ShapeState();
 		System.out.println(powerShapes.isExpanded());
 		
 		//Adding dans les VBox
